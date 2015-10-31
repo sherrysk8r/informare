@@ -1,4 +1,4 @@
-# informare
+# in&#8226;form&#8226;ar&#8226;e
 Cycle 3 Project for 67-475.
 
 ##To Get Started:
