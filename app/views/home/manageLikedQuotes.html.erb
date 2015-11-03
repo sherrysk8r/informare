@@ -1,2 +1,7 @@
-<%= link_to 'Game', game_path, class: 'button' %>
-<%= link_to 'Explore', exploreIssues_path, class: 'button' %>
+<%= link_to game_path do %>
+  <i class="fa fa-comments button round small"></i>
+<% end %>
+
+<%= link_to exploreIssues_path do %>
+  <i class="fa fa-globe button round small"></i>
+<% end %>
