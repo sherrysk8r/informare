@@ -1,5 +1,35 @@
+<div class="panel main-content">
+	<div class="row">
+		<div class="small-3 small-centered columns end">
+			<h3>Who Said It?</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-5 small-centered columns end">
+			<h1>Quote Goes Here</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-5 small-offset-8 columns end">
+			<h6><%= link_to "Source", "http://www.google.com", target: "_blank"%></h6>
+			<h6>Date Goes Here</h6>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="small-9 small-centered columns end">
+			<ul class="small-block-grid-3">
+				<!-- need to pass in answer + 2 random candidates -->
+				<li class="circle text-center" style="padding-top: 80px;">Candidate 1</li>
+				<li class="circle text-center" style="padding-top: 80px;">Candidate 2</li>
+				<li class="circle text-center" style="padding-top: 80px;">Candidate 3</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
 <div class="row">
-	<div class="small-12 columns">
+	<div class="small-4 small-offset-10 columns">
 	<i class="fa fa-fire button disabled round fa-4x small"></i>
 	<%#= link_to leaderboard_path do %>
 		<i class="fa fa-trophy button round fa-4x small"></i>

@@ -116,7 +116,7 @@ $include-html-global-classes: $include-html-classes;
 // $black       : #000000;
 
 // We use these as default colors throughout
-   $primary-color: #CB0059;
+   $primary-color: #3484F9;
    $secondary-color: #E9D94D;
    $alert-color: #CB0059;
    $success-color: #3484F9;
@@ -1493,4 +1493,18 @@ $include-html-global-classes: $include-html-classes;
 .button.small{
 	font-size: 1.5rem;
 	padding: .8rem;
+}
+
+.panel.main-content{
+	height: 650px;
+	background-color: transparent;
+	border: none;
+}
+
+.circle{
+	border-radius: 50%;
+	width: 12rem !important;
+	height: 12rem !important;
+	border: 1px solid black;
+	margin: 20px;
 }
