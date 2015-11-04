@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  # authorize_resource
   def game
   end
 
