@@ -1508,3 +1508,10 @@ $include-html-global-classes: $include-html-classes;
 	border: 1px solid black;
 	margin: 20px;
 }
+
+.notice{
+	background-color: $success-color;
+	opacity: 0.8;
+	padding: 0.5rem;
+	color: white;
+}

@@ -1,4 +1,3 @@
-<%= @response %>
 <div class="panel main-content">
 	<div class="row">
 		<div class="small-3 small-centered columns end">
@@ -15,23 +14,36 @@
 			<h6 align="right"><%= link_to "Source", @quote.source, target: "_blank"%>, <%= @quote.date_said %></h6>
 		</div>
 	</div>
-<script type="text/javascript">
 
-</script>
 	<div class="row">
 		<div class="small-12 small-centered columns end">
 			<ul class="small-block-grid-3">
 				<!-- need to pass in answer + 2 random candidates -->
 				<%#= @threeCandidates %>
 				<% @threeCandidates.each do |c| %>
-					<li style="height:450px; overflow:scroll;">
+					<li align="center">
 						<%= link_to checkAnswer_path(user_answer_id: c.id, correct_answer_id: @quote.candidate_id) do %>
-					<%#= c.graphic.html_safe %><%=image_tag(c.image, class: "circle text-center") %><%#= c.name %>
-					<!-- use modal to figure stuff out -->
+						<%=image_tag(c.image, class: "circle text-center") %>
 					<% end %>
 					</li>
 				<% end %>
 			</ul>
+			<ul class="small-block-grid-3">
+				<% @threeCandidates.each do |c| %>
+					<li align="center">
+						<a href="#" data-reveal-id=<%= c.first_name+c.last_name %>>
+							Who is <%= c.name %>?
+						</a>
+					</li>
+				<% end %>
+			</ul>
+
+			<% @threeCandidates.each do |c| %>
+				<div id=<%= c.first_name + c.last_name %> class="reveal-modal" data-reveal aria-hidden="true" role="dialog">
+				  <%= c.graphic.html_safe %>
+				  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+				</div>
+			<% end %>
 		</div>
 	</div>
 </div>

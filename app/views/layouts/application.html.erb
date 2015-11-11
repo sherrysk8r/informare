@@ -14,6 +14,14 @@
   </head>
 
   <body>
+    <% if flash[:notice] %>
+      <% if params[:correct] %>
+        <div class="notice success"> <i class="fa fa-check-circle"></i> <%= flash[:notice] %></div>
+      <% else %>
+        <div class="notice failure"> <i class="fa fa-times-circle-o"></i> <%= flash[:notice] %></div>
+      <% end %>
+    <% end %>
+
     <div class="row">
       <div class="small-3 large-offset-11 columns">
       <% if !logged_in? %>
