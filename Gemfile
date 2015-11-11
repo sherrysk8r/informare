@@ -27,7 +27,7 @@ gem 'foundation-rails'
 gem "font-awesome-rails"
 gem 'cancancan', '~> 1.10'
 gem 'simple_form'
-
+gem 'hirb'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
