@@ -11,4 +11,6 @@ class HomeController < ApplicationController
   def manageLikedQuotes
   end
 
+  def check_answer
+  end
 end
