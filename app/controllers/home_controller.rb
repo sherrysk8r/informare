@@ -11,6 +11,14 @@ class HomeController < ApplicationController
   def manageLikedQuotes
   end
 
-  def check_answer
+  def checkAnswer
+  	if params[:user_answer_id] == params[:correct_answer_id]
+  		@response = Candidate.getCorrectMessage(params[:correct_answer_id])
+  	else
+  		@response = "Correct!"
+  		current_user.current_streak += 1
+  		current_user.save!
+  	end
+  	redirect_to game_path(@response)
   end
 end

@@ -1,3 +1,4 @@
+<%= @response %>
 <div class="panel main-content">
 	<div class="row">
 		<div class="small-3 small-centered columns end">
@@ -23,8 +24,12 @@
 				<!-- need to pass in answer + 2 random candidates -->
 				<%#= @threeCandidates %>
 				<% @threeCandidates.each do |c| %>
-					
-					<li style="height:450px; overflow:scroll;"><%= raw(c.graphic) %><%#=image_tag(c.image, class: "circle text-center") %><%#= c.name %></li>
+					<li style="height:450px; overflow:scroll;">
+						<%= link_to checkAnswer_path(user_answer_id: c.id, correct_answer_id: @quote.candidate_id) do %>
+					<%#= c.graphic.html_safe %><%=image_tag(c.image, class: "circle text-center") %><%#= c.name %>
+					<!-- use modal to figure stuff out -->
+					<% end %>
+					</li>
 				<% end %>
 			</ul>
 		</div>
@@ -33,7 +38,9 @@
 
 <div class="row">
 	<div class="small-4 small-offset-10 columns">
-	<i class="fa fa-fire button disabled round fa-4x small"></i>
+	<% if logged_in? %>
+		<i class="fa fa-fire button disabled round fa-4x small"><%= current_user.current_streak.nil? ? 0 : current_user.current_streak %></i>
+	<% end %>
 	<%#= link_to leaderboard_path do %>
 		<i class="fa fa-trophy button round fa-4x small"></i>
 	<%# end %>

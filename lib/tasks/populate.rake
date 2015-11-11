@@ -8,7 +8,7 @@ namespace :db do
     # # Rake::Task['db:create'].invoke
     # # Invoke rake db:migrate
     Rake::Task['db:migrate'].invoke
-    # Rake::Task['db:test:prepare'].invoke
+    Rake::Task['db:test:prepare'].invoke
     
 
     require 'open-uri'
