@@ -114,15 +114,20 @@ namespace :db do
 
     candidates.each do |c|
         # martin o'malley is a special case. Martin_O%60Malley
-        if c.first_name = "Martin"
+        if c.first_name == "Martin"
             url = "http://www.ontheissues.org/Martin_O%60Malley.htm"
         else
             url = "http://www.ontheissues.org/" + c.first_name + "_" + c.last_name + ".htm"
         end
         page = Nokogiri::HTML(open(url))
+        # Hillary - 9 - 32
         for i in 8..31
+            if c.name == "Hillary Clinton"
+                i += 1
+            end
             issue_and_quotes = page.css('table')[i].text
-            test_arr = issue_and_quotes.split(/\\r\\n/).map{|i| i.strip!}.reject{|e| e.to_s.empty?}
+            # why don't I have to escae \ in rails console?
+            test_arr = issue_and_quotes.split(/\r\n/).map{|i| i.strip!}.reject{|e| e.to_s.empty?}
             issue_pattern = "(?<=" + c.name + " on ).+"
             issue = test_arr[0].match(issue_pattern).to_s.strip
             if !Issue.all.map{|i| i.title}.include? issue
@@ -135,11 +140,15 @@ namespace :db do
             for j in 1..4
                 test_arr.delete_at(0)
             end
-            quotes = test_arr
-            for q in quotes
-                qSplit = q.split(/\s(?=\()/)
-                newQuote = Quote.new(body_of_text: qSplit[0], candidate_id: c.id, issue_id: newIssue.id, date_said: qSplit[1], source: url)
-                newQuote.save!
+
+            if !test_arr.nil?
+                quotes = test_arr
+                # need to check if they have no quotes
+                for q in quotes
+                    qSplit = q.split(/\s(?=\()/)
+                    newQuote = Quote.new(body_of_text: qSplit[0], candidate_id: c.id.to_i, issue_id: Issue.where(title: issue).first, date_said: qSplit[1], source: url)
+                    newQuote.save!
+                end
             end
         end
     end

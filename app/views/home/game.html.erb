@@ -5,24 +5,27 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="small-5 small-centered columns end">
-			<h1>Quote Goes Here</h1>
-		</div>
-	</div>
-	<div class="row">
-		<div class="small-5 small-offset-8 columns end">
-			<h6><%= link_to "Source", "http://www.google.com", target: "_blank"%></h6>
-			<h6>Date Goes Here</h6>
-		</div>
-	</div>
-
-	<div class="row">
 		<div class="small-9 small-centered columns end">
+			<h1 align="center"><%= @quote.body_of_text %></h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-9 small-offset-8 columns end">
+			<h6><%= link_to "Source", @quote.source, target: "_blank"%>, <%= @quote.date_said %></h6>
+		</div>
+	</div>
+<script type="text/javascript">
+
+</script>
+	<div class="row">
+		<div class="small-12 small-centered columns end">
 			<ul class="small-block-grid-3">
 				<!-- need to pass in answer + 2 random candidates -->
-				<li class="circle text-center" style="padding-top: 80px;">Candidate 1</li>
-				<li class="circle text-center" style="padding-top: 80px;">Candidate 2</li>
-				<li class="circle text-center" style="padding-top: 80px;">Candidate 3</li>
+				<%#= @threeCandidates %>
+				<% @threeCandidates.each do |c| %>
+					
+					<li style="height:450px; overflow:scroll;"><%= raw(c.graphic) %><%#=image_tag(c.image, class: "circle text-center") %><%#= c.name %></li>
+				<% end %>
 			</ul>
 		</div>
 	</div>

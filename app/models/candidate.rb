@@ -4,4 +4,8 @@ class Candidate < ActiveRecord::Base
 	def name
 		first_name + " " + last_name
 	end
+
+	def self.getQuote(candidate)
+		return candidate.quotes.sample
+	end
 end
