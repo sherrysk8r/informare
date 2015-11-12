@@ -18,5 +18,11 @@
 
 $(function(){ 
    $(document).foundation(); 
-   $(".notice").delay(400).fadeOut();
+});
+
+$(function() {
+   $('.notice').fadeIn('normal', function() {
+   	console.log("THIS HAPPENED");
+      $('.notice').delay(500).fadeOut(500, null);
+   });
 });
