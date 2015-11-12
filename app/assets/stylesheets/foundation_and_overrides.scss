@@ -1510,8 +1510,16 @@ $include-html-global-classes: $include-html-classes;
 }
 
 .notice{
-	background-color: $success-color;
 	opacity: 0.8;
 	padding: 0.5rem;
 	color: white;
+	text-align: center;
+}
+
+.success{
+	background-color: $success-color;
+}
+
+.failure{
+	background-color: $warning-color;
 }

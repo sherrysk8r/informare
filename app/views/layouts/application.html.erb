@@ -13,15 +13,14 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
-    <% if flash[:notice] %>
-      <% if params[:correct] %>
-        <div class="notice success"> <i class="fa fa-check-circle"></i> <%= flash[:notice] %></div>
-      <% else %>
-        <div class="notice failure"> <i class="fa fa-times-circle-o"></i> <%= flash[:notice] %></div>
-      <% end %>
+  <% if flash[:notice] %>
+    <% if params[:correct] == "true" %>
+      <div class="notice success"> <i class="fa fa-check-circle"></i> <%= flash[:notice] %></div>
+    <% else %>
+      <div class="notice failure"> <i class="fa fa-times-circle-o"></i> <%= flash[:notice] %></div>
     <% end %>
-
+  <% end %>
+  <body>
     <div class="row">
       <div class="small-3 large-offset-11 columns">
       <% if !logged_in? %>
@@ -30,6 +29,8 @@
         <%= link_to "Logout", logout_path %>
       <% end %>
       </div>
+
+      
 
     <%= yield %>
     </div>

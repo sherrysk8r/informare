@@ -12,8 +12,8 @@ class HomeController < ApplicationController
   end
 
   def checkAnswer
-  	@correct = params[:user_answer_id] != params[:correct_answer_id]
-  	if @correct
+  	@correct = params[:user_answer_id] == params[:correct_answer_id]
+  	if !@correct
   		@response = Candidate.getCorrectMessage(params[:correct_answer_id])
   	else
   		@response = "Correct!"
@@ -22,6 +22,6 @@ class HomeController < ApplicationController
 	  		current_user.save!
 	  	end
   	end
-  	redirect_to game_path, notice: @response, correct: @correct
+  	redirect_to game_path(correct: @correct), notice: @response
   end
 end
