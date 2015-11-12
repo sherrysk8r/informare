@@ -15,3 +15,8 @@ bundle install
 rake db:migrate
 rails s
 ```
+
+To deploy on Heroku:
+```
+
+https://devcenter.heroku.com/articles/getting-started-with-rails4#store-your-app-in-git
