@@ -15,9 +15,17 @@ class HomeController < ApplicationController
   	@correct = params[:user_answer_id] == params[:correct_answer_id]
   	if !@correct
   		@response = Candidate.getCorrectMessage(params[:correct_answer_id])
+  		if !current_user.current_streak.nil?
+  			current_user.current_streak = 0
+  			current_user.save!
+  		end
   	else
   		@response = "Correct!"
   		if logged_in?
+  			if current_user.current_streak.nil?
+  				current_user.current_streak = 0
+  				current_user.save!
+  			end
 	  		current_user.current_streak += 1
 	  		current_user.save!
 	  	end
