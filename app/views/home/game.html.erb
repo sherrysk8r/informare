@@ -31,7 +31,7 @@
 			<ul class="small-block-grid-3">
 				<% @threeCandidates.each do |c| %>
 					<li align="center">
-						<a href="#" data-reveal-id=<%= c.first_name+c.last_name %>>
+						<a href="#" data-reveal-id=<%= c.safeName %>>
 							Who is <%= c.name %>?
 						</a>
 					</li>
@@ -39,7 +39,7 @@
 			</ul>
 
 			<% @threeCandidates.each do |c| %>
-				<div id=<%= c.first_name + c.last_name %> class="reveal-modal" data-reveal aria-hidden="true" role="dialog">
+				<div id=<%= c.safeName %> class="reveal-modal" data-reveal aria-hidden="true" role="dialog">
 				  <%= c.graphic.html_safe %>
 				  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 				</div>

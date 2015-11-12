@@ -5,6 +5,10 @@ class Candidate < ActiveRecord::Base
 		first_name + " " + last_name
 	end
 
+	def safeName
+		(first_name + last_name).tr('\'', '')
+	end
+
 	def self.getQuote(candidate)
 		return candidate.quotes.sample
 	end
