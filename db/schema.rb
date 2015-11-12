@@ -62,9 +62,9 @@ ActiveRecord::Schema.define(version: 20151112184824) do
     t.integer  "number_of_questions_answered", default: 0
     t.integer  "number_of_questions_correct",  default: 0
     t.integer  "current_streak"
-    t.string   "provider"
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
+    t.string   "provider"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "password_digest"
