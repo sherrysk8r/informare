@@ -5,6 +5,9 @@
 		</div>
 	</div>
 	<div class="row">
+		<div class="big-3 small-centered columns end">
+			<h3 align="center">On <%= @quote.issue.title %></h3>
+		</div>
 		<div class="small-9 small-centered columns end">
 			<h1 align="center"><%= @quote.body_of_text %></h1>
 		</div>
@@ -32,7 +35,7 @@
 				<% @threeCandidates.each do |c| %>
 					<li align="center">
 						<a href="#" data-reveal-id=<%= c.safeName %>>
-							Who is <%= c.name %>?
+							<%= c.name %> <i class="fa fa-info-circle"></i>
 						</a>
 					</li>
 				<% end %>
