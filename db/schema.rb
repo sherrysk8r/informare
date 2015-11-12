@@ -22,6 +22,9 @@ ActiveRecord::Schema.define(version: 20151111030149) do
     t.string   "election_year"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "party"
+    t.string   "graphic"
+    t.string   "image"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -50,6 +53,8 @@ ActiveRecord::Schema.define(version: 20151111030149) do
     t.integer  "issue_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "date_said"
+    t.string   "source"
   end
 
   create_table "users", force: :cascade do |t|
@@ -60,6 +65,9 @@ ActiveRecord::Schema.define(version: 20151111030149) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.string   "provider"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "password_digest"
   end
 
 end

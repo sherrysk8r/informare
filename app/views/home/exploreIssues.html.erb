@@ -1,2 +1,10 @@
-<%= link_to 'Game', game_path, class: 'button' %>
-<%= link_to 'Manage Liked Quotes', manageLikedQuotes_path, class: 'button' %>
+<div class="row">
+	<div class="small-2 small-offset-11 columns">
+	<%= link_to game_path do %>
+	  <i class="fa fa-comments button round fa-4x small"></i>
+	<% end %>
+	<%= link_to manageLikedQuotes_path do %>
+	  <i class="fa fa-star button round fa-4x small"></i>
+	<% end %>
+	</div>
+</div>
