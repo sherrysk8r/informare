@@ -13,8 +13,10 @@ class HomeController < ApplicationController
 
   def checkAnswer
   	@correct = params[:user_answer_id] == params[:correct_answer_id]
-    current_user.number_of_questions_answered += 1
-    current_user.save!
+    if logged_in?
+      current_user.number_of_questions_answered += 1
+      current_user.save!
+    end
   	if !@correct
   		@response = Candidate.getCorrectMessage(params[:correct_answer_id])
   	else
