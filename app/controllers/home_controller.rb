@@ -1,8 +1,10 @@
 class HomeController < ApplicationController
   # authorize_resource
+  $quote
   def game
   	@threeCandidates = Candidate.all.sample(3)
   	@quote = Candidate.getQuote(@threeCandidates.sample)
+    $quote = @quote
   end
 
   def exploreIssues
@@ -12,13 +14,14 @@ class HomeController < ApplicationController
   end
 
   def checkAnswer
-  	@correct = params[:user_answer_id] == params[:correct_answer_id]
+  	@correct = params[:user_answer_id].to_s == $quote.candidate_id.to_s
+    
     if logged_in?
       current_user.number_of_questions_answered += 1
       current_user.save!
     end
   	if !@correct
-  		@response = Candidate.getCorrectMessage(params[:correct_answer_id])
+  		@response = Candidate.getCorrectMessage($quote.candidate_id)
   	else
   		@response = "Correct!"
   		if logged_in?
