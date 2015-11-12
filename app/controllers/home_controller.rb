@@ -28,4 +28,8 @@ class HomeController < ApplicationController
   	end
   	redirect_to game_path(correct: @correct), notice: @response
   end
+
+  def sources
+    @sources = Quote.getSources
+  end
 end
