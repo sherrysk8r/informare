@@ -1537,6 +1537,21 @@ $font-family-sans-serif: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 	opacity: .85;
 }
 
+//code below keeps the track my score in the top right no matter zoom level
+
+#trackMyScore {
+	position: relative;
+    top: 50px;
+    right: 0px;
+}
+
+// keeps the the 3 icons on the lower right corner of the screen
+#lowerRight {
+	position: relative;
+    bottom: 0px;
+    right: 0px;
+}
+
 // ------- THE THREE SECTIONS BELOW HAVE TO DO WITH THE 5 SECOND DELAY BEFORE THE NOTICE ACTUALLY DISAPPEARS -------
 
 #hideMe {

@@ -22,16 +22,13 @@
   <% end %>
   <body>
     <div class="row">
-      <div class="small-3 large-offset-11 columns">
-      <% if !logged_in? %>
-        <%= render partial: 'partials/login' %>
-      <% else %>
-        <%= link_to "Logout", logout_path %>
-      <% end %>
+      <div id="trackMyScore"  class="small-3 large-offset-11 columns">
+        <% if !logged_in? %>
+          <%= render partial: 'partials/login' %>
+        <% else %>
+          <%= link_to "Logout", logout_path %>
+        <% end %>
       </div>
-
-      
-
     <%= yield %>
     </div>
   </body>

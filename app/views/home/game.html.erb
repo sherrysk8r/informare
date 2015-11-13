@@ -63,18 +63,16 @@
 </div>
 
 <div class="row">
-	<div class="small-4 small-offset-10 columns">
-	<% if logged_in? %>
-		<i class="fa fa-fire button disabled round fa-4x small"><%= current_user.current_streak.nil? ? 0 : current_user.current_streak %></i>
-	<% end %>
-	<%#= link_to leaderboard_path do %>
-		<i class="fa fa-trophy button round fa-4x small"></i>
-	<%# end %>
-	<%= link_to exploreIssues_path do %>
-		<i class="fa fa-globe button round fa-4x small"></i>
-	<% end %>
-	<%= link_to manageLikedQuotes_path do %>
-	  <i class="fa fa-star button round fa-4x small"></i>
-	<% end %>
+	<div id="lowerRight" class="small-4 small-offset-10 columns">
+		<% if logged_in? %>
+			<i class="fa fa-fire button disabled round fa-4x small"><%= current_user.current_streak.nil? ? 0 : current_user.current_streak %></i>
+		<% end %>
+			<i class="fa fa-trophy button round fa-4x small"></i>
+		<%= link_to exploreIssues_path do %>
+			<i class="fa fa-globe button round fa-4x small"></i>
+		<% end %>
+		<%= link_to manageLikedQuotes_path do %>
+		  <i class="fa fa-star button round fa-4x small"></i>
+		<% end %>
 	</div>
 </div>
