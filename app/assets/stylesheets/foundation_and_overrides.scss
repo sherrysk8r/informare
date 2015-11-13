@@ -1524,6 +1524,15 @@ $include-html-global-classes: $include-html-classes;
 	background-color: $warning-color;
 }
 
+.candidate-image { 
+  border: 7px solid grey; 
+
+  opacity: 1;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+} 
+
 .candidate-image:hover{
-	border: 10px solid $success-color;
+	border: 7px solid $success-color;
+	opacity: .85;
 }
