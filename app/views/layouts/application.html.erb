@@ -15,9 +15,9 @@
 
   <% if flash[:notice] %>
     <% if params[:correct] == "true" %>
-      <div class="notice success"> <i class="fa fa-check-circle"></i> <%= flash[:notice] %></div>
+      <div id="hideMe" class="notice success"> <i class="fa fa-check-circle"></i> <%= flash[:notice] %></div>
     <% else %>
-      <div class="notice failure"> <i class="fa fa-times-circle-o"></i> <%= flash[:notice] %></div>
+      <div id="hideMe" class="notice failure"> <i class="fa fa-times-circle-o"></i> <%= flash[:notice] %></div>
     <% end %>
   <% end %>
   <body>

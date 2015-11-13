@@ -45,9 +45,9 @@
 			<ul class="small-block-grid-3">
 				<% @threeCandidates.each do |c| %>
 					<li align="center">
-						<a href="#" data-reveal-id=<%= c.safeName %>>
+						<strong><a href="#" data-reveal-id=<%= c.safeName %>>
 							<%= c.name %> <i class="fa fa-info-circle"></i>
-						</a>
+						</strong></a>
 					</li>
 				<% end %>
 			</ul>
