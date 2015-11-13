@@ -110,7 +110,7 @@ namespace :db do
     jill_stein.election_year = 2016
     jill_stein.save!
 
-    candidates = [hillary_clinton, bernie_sanders, donald_trump, ben_carson, marco_rubio, ted_cruz, jeb_bush, carly_fiorina, rand_paul, john_kasich, mike_huckabee, chris_christie, martin_omalley, rick_santorum, bobby_jindal, george_pataki, jim_gilmore, lindsey_graham, jill_stein]
+    candidates = Candidate.all
 
     candidates.each do |c|
         # martin o'malley is a special case. Martin_O%60Malley
@@ -128,8 +128,7 @@ namespace :db do
             issue_and_quotes = page.css('table')[i].text
             # why don't I have to escae \ in rails console?
             test_arr = issue_and_quotes.split(/\r\n/).map{|i| i.strip!}.reject{|e| e.to_s.empty?}
-            issue_pattern = "(?<=" + c.name + " on ).+"
-            issue = test_arr[0].match(issue_pattern).to_s.strip
+            issue = test_arr[0].split.drop(3).join(" ").to_s.strip
             if !Issue.all.map{|i| i.title}.include? issue
                 newCategory = Category.new(name: issue)
                 newCategory.save!
@@ -146,7 +145,7 @@ namespace :db do
                 # need to check if they have no quotes
                 for q in quotes
                     qSplit = q.split(/\s(?=\()/)
-                    newQuote = Quote.new(body_of_text: qSplit[0], candidate_id: c.id.to_i, issue_id: Issue.where(title: issue).first, date_said: qSplit[1], source: url)
+                    newQuote = Quote.new(body_of_text: qSplit[0], candidate_id: c.id.to_i, issue_id: Issue.where(title: issue).first.id, date_said: qSplit[1], source: url)
                     newQuote.save!
                 end
             end

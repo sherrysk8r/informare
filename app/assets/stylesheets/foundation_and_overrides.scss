@@ -1523,3 +1523,7 @@ $include-html-global-classes: $include-html-classes;
 .failure{
 	background-color: $warning-color;
 }
+
+.candidate-image:hover{
+	border: 10px solid $success-color;
+}

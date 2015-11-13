@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'game', to: 'home#game'
   get 'exploreIssues', to: 'home#exploreIssues'
   get 'manageLikedQuotes', to: 'home#manageLikedQuotes'
-
+  get 'sources', to: 'home#sources'
   get 'checkAnswer', to: 'home#checkAnswer'
 
   resources :users

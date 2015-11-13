@@ -5,13 +5,16 @@
 		</div>
 	</div>
 	<div class="row">
+		<div class="big-3 small-centered columns end">
+			<h3 align="center">On <%= @quote.issue.title %></h3>
+		</div>
 		<div class="small-9 small-centered columns end">
 			<h1 align="center"><%= @quote.body_of_text %></h1>
 		</div>
 	</div>
 	<div class="row">
 		<div class="small-9 small-centered columns end">
-			<h6 align="right"><%= link_to "Source", @quote.source, target: "_blank"%>, <%= @quote.date_said %></h6>
+			<h6 align="right"><%= @quote.date_said %></h6>
 		</div>
 	</div>
 
@@ -22,8 +25,8 @@
 				<%#= @threeCandidates %>
 				<% @threeCandidates.each do |c| %>
 					<li align="center">
-						<%= link_to checkAnswer_path(user_answer_id: c.id, correct_answer_id: @quote.candidate_id) do %>
-						<%=image_tag(c.image, class: "circle text-center") %>
+						<%= link_to checkAnswer_path(user_answer_id: c.id) do %>
+						<%=image_tag(c.image, class: "circle text-center, candidate-image") %>
 					<% end %>
 					</li>
 				<% end %>
@@ -32,7 +35,7 @@
 				<% @threeCandidates.each do |c| %>
 					<li align="center">
 						<a href="#" data-reveal-id=<%= c.safeName %>>
-							Who is <%= c.name %>?
+							<%= c.name %> <i class="fa fa-info-circle"></i>
 						</a>
 					</li>
 				<% end %>
