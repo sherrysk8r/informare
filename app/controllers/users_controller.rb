@@ -1,12 +1,15 @@
 class UsersController < ApplicationController
   #authorize_resource
-  
+  def show
+    @user = current_user
+  end
+
   def new
     @user = User.new
   end
 
   def edit
-    @user = @current_user
+    @user = current_user
   end
 
   def create

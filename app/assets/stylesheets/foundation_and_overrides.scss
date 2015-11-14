@@ -1496,6 +1496,7 @@ $font-family-sans-serif: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 }
 
 .panel.main-content{
+	padding-top: 10%;
 	height: 650px;
 	background-color: transparent;
 	border: none;
@@ -1509,7 +1510,7 @@ $font-family-sans-serif: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 	margin: 20px;
 }
 
-.notice{
+.notice, .alert{
 	opacity: 0.8;
 	padding: 0.5rem;
 	color: white;
@@ -1551,6 +1552,20 @@ $font-family-sans-serif: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
     bottom: 20px;
     right: 50px;
 }
+
+.alert{
+	background-color: $alert-color;
+}
+
+#informareLogo {
+	position: absolute;
+	width: 40%;
+    left: 20px;
+    top: 10px;
+}
+
+
+
 
 // ------- THE THREE SECTIONS BELOW HAVE TO DO WITH THE 5 SECOND DELAY BEFORE THE NOTICE ACTUALLY DISAPPEARS -------
 

@@ -22,10 +22,15 @@ class HomeController < ApplicationController
     end
   	if !@correct
   		@response = Candidate.getCorrectMessage($quote.candidate_id)
+      if logged_in?
+        current_user.current_streak = 0
+        current_user.save!
+      end
   	else
   		@response = "Correct!"
   		if logged_in?
 	  		current_user.current_streak += 1
+        current_user.number_of_questions_correct += 1
 	  		current_user.save!
 	  	end
   	end

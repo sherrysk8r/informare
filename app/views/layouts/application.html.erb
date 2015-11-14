@@ -13,6 +13,9 @@
     <%= csrf_meta_tags %>
   </head>
 
+  <% if flash[:alert] %>
+    <div class="alert"><%= flash[:alert] %></div>
+  <% end %>
   <% if flash[:notice] %>
     <% if params[:correct] == "true" %>
       <div id="hideMe" class="notice success"> <i class="fa fa-check-circle"></i> <%= flash[:notice] %></div>
@@ -21,17 +24,17 @@
     <% end %>
   <% end %>
   <body>
-    <div id="informareLogo">
-      <img  border="0" src="InformareLogo.JPG" alt="Informare">
+    <div class="row">
+      <div id="informareLogo" class="row">
+        <%= image_tag 'logo.png', alt: "informare", id: "informareLogo" %>
+      </div>
     </div>
-    <!-- <div class="row"> -->
-    <div>
-      <!-- <div id="trackMyScore"  class="small-3 large-offset-11 columns"> -->
+    <div class="row">
       <div id="trackMyScore">
         <% if !logged_in? %>
           <%= render partial: 'partials/login' %>
         <% else %>
-          <%= link_to "Logout", logout_path %>
+          <%= link_to current_user.name, user_path(current_user) %> | <%= link_to "Logout", logout_path %>
         <% end %>
       </div>
     <%= yield %>
