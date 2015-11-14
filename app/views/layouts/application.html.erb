@@ -25,6 +25,9 @@
   <% end %>
   <body>
     <div class="row">
+      <%= image_tag 'logo.png' %>
+    </div>
+    <div class="row">
       <div class="small-3 large-offset-11 columns">
       <% if !logged_in? %>
         <%= render partial: 'partials/login' %>
