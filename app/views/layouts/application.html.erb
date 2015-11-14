@@ -21,8 +21,13 @@
     <% end %>
   <% end %>
   <body>
-    <div class="row">
-      <div id="trackMyScore"  class="small-3 large-offset-11 columns">
+    <div id="informareLogo">
+      <img  border="0" src="InformareLogo.JPG" alt="Informare">
+    </div>
+    <!-- <div class="row"> -->
+    <div>
+      <!-- <div id="trackMyScore"  class="small-3 large-offset-11 columns"> -->
+      <div id="trackMyScore">
         <% if !logged_in? %>
           <%= render partial: 'partials/login' %>
         <% else %>

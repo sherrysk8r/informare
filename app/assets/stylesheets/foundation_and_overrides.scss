@@ -1540,28 +1540,28 @@ $font-family-sans-serif: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 //code below keeps the track my score in the top right no matter zoom level
 
 #trackMyScore {
-	position: relative;
+	position: absolute;
     top: 50px;
-    right: 0px;
+    right: 50px;
 }
 
 // keeps the the 3 icons on the lower right corner of the screen
 #lowerRight {
-	position: relative;
-    bottom: 0px;
-    right: 0px;
+	position: absolute;
+    bottom: 20px;
+    right: 50px;
 }
 
 // ------- THE THREE SECTIONS BELOW HAVE TO DO WITH THE 5 SECOND DELAY BEFORE THE NOTICE ACTUALLY DISAPPEARS -------
 
 #hideMe {
-    -moz-animation: cssAnimation 0s ease-in 5s forwards;
+    -moz-animation: cssAnimation 0s ease-in 3s forwards;
     /* Firefox */
-    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+    -webkit-animation: cssAnimation 0s ease-in 3s forwards;
     /* Safari and Chrome */
-    -o-animation: cssAnimation 0s ease-in 5s forwards;
+    -o-animation: cssAnimation 0s ease-in 3s forwards;
     /* Opera */
-    animation: cssAnimation 0s ease-in 5s forwards;
+    animation: cssAnimation 0s ease-in 3s forwards;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
 }
@@ -1582,4 +1582,4 @@ $font-family-sans-serif: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
     }
 }
 
-// ------- END OF THE 3 SECTIONS THAT HAVE TO DO WITH THE 5 SECOND DISAPPEAR ANIMATION -------
+// ------- END OF THE 3 SECTIONS THAT HAVE TO DO WITH THE 3 SECOND DISAPPEAR ANIMATION -------

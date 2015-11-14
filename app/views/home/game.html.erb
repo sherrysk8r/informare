@@ -2,7 +2,7 @@
 	<!-- WHO SAID IT -->
 	<div class="row">
 		<div class="small-3 small-centered columns end">
-			<h3 align="center">Who Said It?</h3>
+			<h3 align="center">Who said it?</h3><br>
 		</div>
 	</div>
 
@@ -10,7 +10,7 @@
 	<div class="row">
 		<!-- ISSUE TITLE (LIKE: ON......) -->
 		<div class="big-3 small-centered columns end">
-			<h3 align="center">On <%= @quote.issue.title %></h3>
+			<h3 align="center">On the issue of: <%= @quote.issue.title.upcase %></h3><br>
 		</div>
 
 
@@ -24,7 +24,7 @@
 		<!-- WHEN THE QUOTE WAS SAID -->
 	<div class="row">
 		<div class="small-9 small-centered columns end">
-			<h6 align="right"><%= @quote.date_said %></h6>
+			<h6 align="right"> - <%= @quote.date_said %></h6>
 		</div>
 	</div>
 
@@ -63,7 +63,8 @@
 </div>
 
 <div class="row">
-	<div id="lowerRight" class="small-4 small-offset-10 columns">
+	<!-- <div id="lowerRight" class="small-4 small-offset-10 columns"> -->
+	<div id="lowerRight">
 		<% if logged_in? %>
 			<i class="fa fa-fire button disabled round fa-4x small"><%= current_user.current_streak.nil? ? 0 : current_user.current_streak %></i>
 		<% end %>
