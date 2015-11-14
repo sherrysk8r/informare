@@ -1,6 +1,4 @@
 <div class="row">
-	<%#= @current_user %>
-	<%#= @user %>
 	<%= @user.name %><br>
 	Percent Correct: <%= (100*@user.percent_correct).round(3) %>%<br>
 	Current Streak: <%= @user.current_streak %><br>
