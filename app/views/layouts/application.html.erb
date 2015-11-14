@@ -13,6 +13,9 @@
     <%= csrf_meta_tags %>
   </head>
 
+  <% if flash[:alert] %>
+    <div class="alert"><%= flash[:alert] %></div>
+  <% end %>
   <% if flash[:notice] %>
     <% if params[:correct] == "true" %>
       <div class="notice success"> <i class="fa fa-check-circle"></i> <%= flash[:notice] %></div>

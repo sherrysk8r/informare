@@ -20,4 +20,16 @@ class User < ActiveRecord::Base
 	def self.authenticate(email,password)
       	find_by_email(email).try(:authenticate, password)
     end
+
+    def name
+    	first_name + " " + last_name
+    end
+
+    def proper_name
+    	last_name + ", " + first_name
+    end
+
+    def percent_correct
+    	self.number_of_questions_correct.to_f/self.number_of_questions_answered
+    end
 end
