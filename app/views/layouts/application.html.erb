@@ -29,7 +29,7 @@
       <% if !logged_in? %>
         <%= render partial: 'partials/login' %>
       <% else %>
-        <%= link_to "Logout", logout_path %>
+        <%= link_to current_user.name, user_path(current_user) %> | <%= link_to "Logout", logout_path %>
       <% end %>
       </div>
 
