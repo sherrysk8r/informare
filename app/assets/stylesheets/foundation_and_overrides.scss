@@ -1598,3 +1598,12 @@ $font-family-sans-serif: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 }
 
 // ------- END OF THE 3 SECTIONS THAT HAVE TO DO WITH THE 3 SECOND DISAPPEAR ANIMATION -------
+
+#loginOptions{
+	list-style: none;
+}
+
+#loginOptions li{
+	display: inline;
+	padding-left: 10px;
+}
