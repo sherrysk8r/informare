@@ -14,6 +14,11 @@ namespace :db do
     require 'open-uri'
     require 'Nokogiri'
     
+    #getting all the issues
+    # @issuePage = Nokogiri::HTML(open('https://www.isidewith.com/polls'))
+    # @issuePage.css('div.poll')[10].text.split(/\t/).map{|i| i.strip!}.reject{|e| e.to_s.empty?}
+
+    #getting the candidates
     hillary_clinton = Candidate.new(first_name: 'Hillary', last_name: 'Clinton', party: 'Democratic Party')
     hillary_clinton.graphic = '<div class="ftb-widget" data-width="500" data-height="400" data-widget-id="b9d30UgnSmN" data-href="http://presidential-candidates.insidegov.com/l/40/Hillary-Clinton" ><a href="http://presidential-candidates.insidegov.com/l/40/Hillary-Clinton" target="_blank"  style="font:14px/16px arial;color:#3d3d3d;">Hillary Clinton Presidential Candidate Profile | InsideGov</a></div><script async src="https://s.graphiq.com/rx/widgets.js"></script>'
     hillary_clinton.image = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Hillary_Clinton_official_Secretary_of_State_portrait_crop.jpg/330px-Hillary_Clinton_official_Secretary_of_State_portrait_crop.jpg'
