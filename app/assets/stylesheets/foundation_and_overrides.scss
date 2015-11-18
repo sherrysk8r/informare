@@ -1606,3 +1606,19 @@ $font-family-sans-serif: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 	display: inline;
 	padding-left: 10px;
 }
+
+.issues{
+	line-height: 10em;
+	text-align: center;
+	margin: auto;
+}
+.issue_circle{
+	display: inline-block;
+	height: 10em;
+	width: 10em;
+	border: 1px solid black;
+	margin: 1rem;
+	border-radius: 50%;
+	//padding: 20px; //there's issues with vertical centering text
+	vertical-align: middle;
+}

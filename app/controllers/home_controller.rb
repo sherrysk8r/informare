@@ -8,9 +8,15 @@ class HomeController < ApplicationController
   end
 
   def exploreIssues
+    @issues = Issue.all
   end
 
   def manageLikedQuotes
+  end
+
+  def issueInfoTemplate
+    @issue = Issue.find(params[:issue_id])
+    @quotes = Quote.for_issue(params[:issue_id])
   end
 
   def checkAnswer

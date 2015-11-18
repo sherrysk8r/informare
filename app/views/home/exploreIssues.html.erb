@@ -1,3 +1,13 @@
+<div class="row issues">
+	<% @issues.each do |i| %>
+		<div class="issue_circle text-center">
+			<%= link_to issue_info_path(i.id) do %>
+				<%= i.title %></div>
+			<% end %>
+	<% end %>
+	</ul>
+</div>
+
 <div class="row">
 	<div class="small-2 small-offset-11 columns">
 	<%= link_to game_path do %>
