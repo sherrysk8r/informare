@@ -29,7 +29,7 @@
 				<% @threeCandidates.each do |c| %>
 					<li align="center">
 						<%= link_to checkAnswer_path(user_answer_id: c.id) do %>
-						<%=image_tag(c.image, class: "circle text-center, candidate-image") %>
+							<div style='background-image: url(<%=c.image%>)' class="candidate-image circle"></div>
 					<% end %>
 					</li>
 				<% end %>

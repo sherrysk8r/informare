@@ -1503,11 +1503,11 @@ $font-family-sans-serif: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 }
 
 .circle{
+	height: 12em;
+	width: 12em;
 	border-radius: 50%;
-	width: 12rem !important;
-	height: 12rem !important;
-	border: 1px solid black;
-	margin: 20px;
+	margin: auto;
+	background-size: 12em;
 }
 
 .notice, .alert{
@@ -1527,7 +1527,6 @@ $font-family-sans-serif: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 
 .candidate-image { 
   border: 7px solid grey; 
-
   opacity: 1;
   -webkit-transition: .3s ease-in-out;
   transition: .3s ease-in-out;
