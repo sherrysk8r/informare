@@ -5,6 +5,7 @@ class HomeController < ApplicationController
   	@threeCandidates = Candidate.all.sample(3)
   	@quote = Candidate.getQuote(@threeCandidates.sample)
     $quote = @quote
+    @title = "Match the Quote and Candidate"
   end
 
   def exploreIssues

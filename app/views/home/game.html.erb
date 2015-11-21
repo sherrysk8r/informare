@@ -1,27 +1,42 @@
 <div>
 	<!-- WHO SAID IT -->
 	<div class="row">
-		<div class="small-centered columns end">
-			<h4 align="center">Who said this on the issue of: <%= @quote.issue.title %>?</h4><br>
+		<div class="small-12 columns" >
+			<div class="small-6 small-offset-3 columns">
+				<h4 align="center">Issue: <%= @quote.issue.title %></h4>
+			</div>
+			<div class="small-1 columns"></div>
+			<% if logged_in? %>
+				<div class="small-2 columns" align="right">
+					<% streak = current_user.current_streak.nil? ? 0 : current_user.current_streak %>
+					<% if streak == 0 %>
+						<div class="button small round" style="background-color: #CB0059">
+					<% else %>
+						<div class="button small round">
+					<% end %>
+						<%= streak %> <%= image_tag 'flames8.png', id: "flame_icon" %><!--  <i class="fa fa-fire"></i> -->
+						</div>
+				</div>
+			<% end %>
 		</div>
+	</div>
 
-
+	<div class="row">
 		<!-- QUOTE -->
 		<div class="small-12 small-centered columns end">
-			<h2 align="center"><%= @quote.body_of_text %></h2>
+			<h3 align="center"><%= @quote.body_of_text %></h3>
 		</div>
 	</div>
 		
 
 		<!-- WHEN THE QUOTE WAS SAID -->
 	<div class="row">
-		<div class="small-12 small-centered columns end">
+		<div class="small-9 small-centered columns end">
 			<h6 align="right"> - <%= @quote.date_said %></h6>
 		</div>
 	</div>
 
-
-	<div class="row">
+	<div class="row" style="padding-top: 30px;">
 		<div class="small-12 small-centered columns end">
 			<ul class="small-block-grid-3">
 				<!-- need to pass in answer + 2 random candidates -->
@@ -57,9 +72,6 @@
 <div class="row">
 	<!-- <div id="lowerRight" class="small-4 small-offset-10 columns"> -->
 	<div id="lowerRight">
-		<% if logged_in? %>
-			<i class="fa fa-fire button disabled round fa-4x small"><%= current_user.current_streak.nil? ? 0 : current_user.current_streak %></i>
-		<% end %>
 			<i class="fa fa-trophy button round fa-4x small"></i>
 		<%= link_to exploreIssues_path do %>
 			<i class="fa fa-globe button round fa-4x small"></i>

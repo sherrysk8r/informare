@@ -1507,7 +1507,8 @@ $font-family-sans-serif: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 	width: 12em;
 	border-radius: 50%;
 	margin: auto;
-	background-size: 12em;
+	background-size: 11.25em;
+	background-position: center top;
 }
 
 .notice, .alert{
@@ -1621,4 +1622,8 @@ $font-family-sans-serif: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 	border-radius: 50%;
 	//padding: 20px; //there's issues with vertical centering text
 	vertical-align: middle;
+}
+
+#flame_icon{
+	vertical-align: baseline;
 }

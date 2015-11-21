@@ -30,7 +30,11 @@
           <%= image_tag 'logo.png', alt: "informare", id: "informareLogo" %>
         <% end %>
       </div>
-
+      <div id="title">
+        <% if @title %>
+          <%#= @title %>
+        <% end %>
+      </div>
       <div id="trackMyScore">
         <% if !logged_in? %>
           <%= render partial: 'partials/login' %>
