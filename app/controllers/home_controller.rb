@@ -9,7 +9,7 @@ class HomeController < ApplicationController
   end
 
   def exploreIssues
-    @issues = Issue.all
+    @issues = Issue.all.shuffle
   end
 
   def manageLikedQuotes
@@ -17,7 +17,7 @@ class HomeController < ApplicationController
 
   def issueInfoTemplate
     @issue = Issue.find(params[:issue_id])
-    @quotes = Quote.for_issue(params[:issue_id])
+    @quotes = Quote.for_issue(params[:issue_id]).shuffle
   end
 
   def checkAnswer

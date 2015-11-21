@@ -1620,10 +1620,27 @@ $font-family-sans-serif: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 	border: 1px solid black;
 	margin: 1rem;
 	border-radius: 50%;
-	//padding: 20px; //there's issues with vertical centering text
 	vertical-align: middle;
 }
 
 #flame_icon{
 	vertical-align: baseline;
+}
+
+.quote{
+	margin: 8px 0px;
+	//border: 1px solid $success-color;
+	background-color: $success-color;
+	color: white !important;
+	opacity: 0.8;
+	padding: 0px 2px;
+}
+
+.quote:hover{
+	opacity: 1.0;
+}
+
+.quote_body{
+	padding: 3px 5px;
+	text-align: center;
 }

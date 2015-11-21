@@ -4,9 +4,11 @@
 		<%= render partial: 'issueDetails/'+@issue.title.delete('&').split.join("_").downcase %>
 	</div>
 	<div class="small-3 columns" style="overflow: scroll; height: 35em;">
+		<h5 align="center">Some Quotes By Candidates</h5>
 		<% @quotes.each do |q| %>
-			<div>
-				<%= q.body_of_text %>
+			<div class='quote'>
+				<div class="quote_body">"<%= q.body_of_text %>"</div>
+				<div align="right">Like <i class="fa fa-star"></i> </div>
 			</div>	
 		<% end %>
 	</div>
