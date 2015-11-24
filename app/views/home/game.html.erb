@@ -76,8 +76,10 @@
 		<%= link_to exploreIssues_path do %>
 			<i class="fa fa-globe button round fa-4x small"></i>
 		<% end %>
-		<%= link_to manageLikedQuotes_path do %>
-		  <i class="fa fa-star button round fa-4x small"></i>
+		<% if logged_in? %>
+			<%= link_to manageLikedQuotes_path do %>
+			  <i class="fa fa-star button round fa-4x small"></i>
+			<% end %>
 		<% end %>
 	</div>
 </div>

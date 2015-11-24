@@ -14,6 +14,10 @@ class HomeController < ApplicationController
   end
 
   def manageLikedQuotes
+    @title = "Manage Your Quotes"
+    if logged_in?
+      @quotes = current_user.likedQuotes
+    end
   end
 
   def issueInfoTemplate
