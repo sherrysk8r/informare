@@ -1,4 +1,24 @@
 <div class="row">
+	<% if @quotes.nil? || @quotes.empty? %>
+		<div class="small-10 columns small-offset-1" align="center">
+			<h1>Uh oh <i class="fa fa-frown-o"></i>. It doesn't seem like you have any liked quotes. <%= link_to "Explore some quotes?", exploreIssues_path %> </h1>
+		</div>
+	<% else %>
+		<% for i in 0..@candidates.length - 1 %>
+			<div class="likedCandidateQuotes">
+				<% candidate = @candidateProfiles[i] %>
+				<h4><%= candidate.name %> </h4>
+				<div>
+					<% candidateQuotes = @quotes.map{|q| q if q.candidate_id == candidate.id}.compact %>
+					<ul>
+						<% candidateQuotes.each do |q| %>
+							<li><%= q.body_of_text %> <%= q.date_said %></li>
+						<% end %>
+					</ul>
+				</div>
+			</div>
+		<% end %>
+	<% end %>
 </div>
 
 <div class="row">

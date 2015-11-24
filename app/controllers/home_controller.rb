@@ -16,7 +16,11 @@ class HomeController < ApplicationController
   def manageLikedQuotes
     @title = "Manage Your Quotes"
     if logged_in?
-      @quotes = current_user.likedQuotes
+      @quotes = current_user.liked_quotes.map{|l| l.quote}.flatten.to_a
+      liked_candidates = @quotes.map{|q| q.candidate_id}
+      @candidates = liked_candidates.each_with_object(Hash.new(0)){ |m,h| h[m] += 1 }.sort_by{ |k,v| -v }
+      @candidateProfiles = @candidates.map{|i| i.first }.map{|id| Candidate.find(id)}.compact.to_a
+      # User.first.liked_quotes.map{|l| l.quote}.flatten.to_a.compact
     end
   end
 
