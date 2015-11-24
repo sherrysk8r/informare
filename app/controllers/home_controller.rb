@@ -56,11 +56,14 @@ class HomeController < ApplicationController
   end
 
   def likeQuote
-    @quoteID = params[:quote]
+    quoteID = params[:quote]
     if logged_in?
-      @like = LikedQuote.create(user_id: current_user.id, quote_id: @quoteID)
-      @like.save!
-      redirect_to issue_info_path(issue_id: params[:issue_id])
+      @like = LikedQuote.create(user_id: current_user.id, quote_id: quoteID)
+      if @like.save
+        redirect_to issue_info_path(issue_id: params[:issue_id])
+      else
+        redirect_to issue_info_path(issue_id: params[:issue_id]), alert: "You've already liked this quote."
+      end
     else
       redirect_to issue_info_path(issue_id: params[:issue_id]), alert: "Log in to like quotes."
     end
