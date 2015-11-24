@@ -1,0 +1,18 @@
+<!-- does partials/login need 4 columns? logo fonts needed. -->
+<div id="informareLogo" class="small-4 columns" align="left">
+  <%=link_to game_path do%>
+    in&#8226;form&#8226;ar&#8226;e<%#= image_tag 'logo.png', alt: "informare", id: "informareLogo" %>
+  <% end %>
+</div>
+<div id="title" class="small-4 columns">
+  <% if @title %>
+    <%= @title %>
+  <% end %>
+</div>
+<div id="trackMyScore" class="small-4 columns" align="right">
+  <% if !logged_in? %>
+    <%= render partial: 'partials/login' %>
+  <% else %>
+    <%= link_to current_user.name, user_path(current_user) %> | <%= link_to "Logout", logout_path %>
+  <% end %>
+</div>

@@ -5,11 +5,12 @@ class HomeController < ApplicationController
   	@threeCandidates = Candidate.all.sample(3)
   	@quote = Candidate.getQuote(@threeCandidates.sample)
     $quote = @quote
-    @title = "Match the Quote and Candidate"
+    @title = "Directions: Match the Quote and Candidate"
   end
 
   def exploreIssues
     @issues = Issue.all.shuffle
+    @title = "Good work! You have explored xx issues."
   end
 
   def manageLikedQuotes
@@ -18,6 +19,8 @@ class HomeController < ApplicationController
   def issueInfoTemplate
     @issue = Issue.find(params[:issue_id])
     @quotes = Quote.for_issue(params[:issue_id]).shuffle
+    @title = @issue.title
+    # limit quotes to ones that haven't been liked by user
   end
 
   def checkAnswer
@@ -42,6 +45,18 @@ class HomeController < ApplicationController
 	  	end
   	end
   	redirect_to game_path(correct: @correct), notice: @response
+  end
+
+  def likeQuote
+    @quoteID = params[:quote]
+    if logged_in?
+      @like = LikedQuote.create(user_id: current_user.id, quote_id: @quoteID)
+      @like.save!
+      redirect_to issue_info_path(issue_id: params[:issue_id])
+    else
+      redirect_to issue_info_path(issue_id: params[:issue_id]), alert: "Log in to like quotes."
+    end
+
   end
 
   def sources

@@ -1496,7 +1496,7 @@ $font-family-sans-serif: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 }
 
 .panel.main-content{
-	padding-top: 10%;
+	padding-top: 3%;
 	height: 650px;
 	background-color: transparent;
 	border: none;
@@ -1538,14 +1538,6 @@ $font-family-sans-serif: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 	opacity: .85;
 }
 
-//code below keeps the track my score in the top right no matter zoom level
-
-#trackMyScore {
-	position: absolute;
-    top: 20px;
-    right: 50px;
-}
-
 // keeps the the 3 icons on the lower right corner of the screen
 #lowerRight {
 	position: absolute;
@@ -1558,13 +1550,16 @@ $font-family-sans-serif: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 }
 
 #informareLogo {
-	position: absolute;
-	width: 40%;
-    left: 20px;
-    top: 10px;
+	height: auto;
 }
 
+div#title{
+	text-align: center;
+}
 
+#navbar{
+	padding-top: 10px;
+}
 
 
 // ------- THE THREE SECTIONS BELOW HAVE TO DO WITH THE 5 SECOND DELAY BEFORE THE NOTICE ACTUALLY DISAPPEARS -------

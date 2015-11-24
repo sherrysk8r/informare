@@ -24,26 +24,10 @@
     <% end %>
   <% end %>
   <body>
-    <div class="row">
-      <div id="informareLogo" class="row">
-        <%=link_to game_path do%>
-          <%= image_tag 'logo.png', alt: "informare", id: "informareLogo" %>
-        <% end %>
-      </div>
-      <!-- <div id="title">
-        <%# if @title %>
-          <%#= @title %>
-        <%# end %>
-      </div> -->
-      <div id="trackMyScore">
-        <% if !logged_in? %>
-          <%= render partial: 'partials/login' %>
-        <% else %>
-          <%= link_to current_user.name, user_path(current_user) %> | <%= link_to "Logout", logout_path %>
-        <% end %>
-      </div>
-
-    <div class="panel main-content">
+    <div class="row" id="navbar">
+      <%= render partial: 'partials/nav' %>
+    </div>
+    <div class="panel main-content row">
       <%= yield %>
     </div>
     </div>

@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get 'sources', to: 'home#sources'
   get 'checkAnswer', to: 'home#checkAnswer'
   get 'issueInfo/(:issue_id)', to: 'home#issueInfoTemplate', as: :issue_info
-  
+  get 'likeQuote', to: 'home#likeQuote'
+
   resources :users
   resources :sessions
   

@@ -1,14 +1,20 @@
 <div class="row">
 	<div class="small-9 columns">
-		<%= @issue.title %>
 		<%= render partial: 'issueDetails/'+@issue.title.delete('&').split.join("_").downcase %>
 	</div>
 	<div class="small-3 columns" style="overflow: scroll; height: 35em;">
 		<h5 align="center">Some Quotes By Candidates</h5>
 		<% @quotes.each do |q| %>
 			<div class='quote'>
+				<!-- ideally want to do this as json? -->
 				<div class="quote_body">"<%= q.body_of_text %>"</div>
-				<div align="right">Like <i class="fa fa-star"></i> </div>
+				<% if logged_in? %>
+					<%= link_to likeQuote_path(quote: q, issue_id: @issue.id) do %>
+						<div align="right" style="color: white">Like <i class="fa fa-star"></i></div>
+					<% end %>
+				<% else %>
+					<div align="right" style="color: #cfcfcf;">Like <i class="fa fa-star"></i></div>
+				<% end %>
 			</div>	
 		<% end %>
 	</div>
