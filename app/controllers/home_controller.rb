@@ -67,7 +67,16 @@ class HomeController < ApplicationController
     else
       redirect_to issue_info_path(issue_id: params[:issue_id]), alert: "Log in to like quotes."
     end
+  end
 
+  def dislikeQuote
+    quoteToDelete = params[:quote]
+    if logged_in?
+      liked_quotes = current_user.liked_quotes
+      quote = liked_quotes.where(quote_id: quoteToDelete).first
+      quote.destroy
+      redirect_to manageLikedQuotes_path, notice: "You have unliked this quote."
+    end
   end
 
   def sources

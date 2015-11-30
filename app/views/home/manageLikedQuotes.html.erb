@@ -7,12 +7,21 @@
 		<% for i in 0..@candidates.length - 1 %>
 			<div class="likedCandidateQuotes">
 				<% candidate = @candidateProfiles[i] %>
-				<h4><%= candidate.name %> </h4>
+				<% candidateQuotes = @quotes.map{|q| q if q.candidate_id == candidate.id}.compact %>
+				
+				<h4><%= candidate.name %> 
+					<% if i == 0 && candidateQuotes.length > 1 %>
+					 has said the most things that you like.
+					<% end %>
+				</h4>
 				<div>
-					<% candidateQuotes = @quotes.map{|q| q if q.candidate_id == candidate.id}.compact %>
 					<ul>
 						<% candidateQuotes.each do |q| %>
-							<li><%= q.body_of_text %> <%= q.date_said %></li>
+							<li><%= q.body_of_text %> <%= q.date_said %>
+								<%= link_to dislikeQuote_path(quote: q) do %>
+									<i class="fa fa-times" style="color:#CB0059;"></i>
+								<% end %>
+							</li>
 						<% end %>
 					</ul>
 				</div>
