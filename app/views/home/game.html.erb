@@ -10,11 +10,11 @@
 				<div class="small-2 columns" align="right">
 					<% streak = current_user.current_streak.nil? ? 0 : current_user.current_streak %>
 					<% if streak == 0 %>
-						<div class="button small round" style="background-color: #CB0059">
+						<div class="button small round" style="background-color: #CB0059" id="streak">
 					<% else %>
-						<div class="button small round">
+						<div class="button small round" id="streak">
 					<% end %>
-						<%= streak %> <%= image_tag 'flames8.png', id: "flame_icon" %>
+						<%= streak.to_s.strip + " " %><%= image_tag 'flames8.png', id: "flame_icon" %>
 						</div>
 				</div>
 			<% end %>
