@@ -6,6 +6,7 @@ class HomeController < ApplicationController
   	@quote = Candidate.getQuote(@threeCandidates.sample)
     $quote = @quote
     @title = "Directions: Match the Quote and Candidate"
+    @leaders = User.getLeaders
   end
 
   def exploreIssues

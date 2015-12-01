@@ -32,4 +32,8 @@ class User < ActiveRecord::Base
     def percent_correct
     	self.number_of_questions_correct.to_f/self.number_of_questions_answered
     end
+
+    def self.getLeaders
+        User.order(current_streak: :desc).first(10)
+    end
 end
