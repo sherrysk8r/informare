@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  streak: 
+  date_start: MyString
+  date,: MyString
+  date_end: MyString
+  date: MyString
+
+two:
+  user_id: 
+  streak: 
+  date_start: MyString
+  date,: MyString
+  date_end: MyString
+  date: MyString

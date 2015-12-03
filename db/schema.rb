@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151112190211) do
+ActiveRecord::Schema.define(version: 20151203202243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(version: 20151112190211) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "explored_issues", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "issue_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -57,6 +64,15 @@ ActiveRecord::Schema.define(version: 20151112190211) do
     t.string   "source"
   end
 
+  create_table "user_streaks", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "streak"
+    t.datetime "date_start"
+    t.datetime "date_end"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.integer  "number_of_questions_answered", default: 0
@@ -64,7 +80,6 @@ ActiveRecord::Schema.define(version: 20151112190211) do
     t.integer  "current_streak",               default: 0
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
-    t.string   "provider"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "password_digest"
