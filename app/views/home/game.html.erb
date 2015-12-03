@@ -71,8 +71,8 @@
 
 <div class="row">
 	<!-- <div id="lowerRight" class="small-4 small-offset-10 columns"> -->
-	<div id="lowerRight" data-reveal-id="leaderboard">
-			<i class="fa fa-trophy button round fa-4x small"></i>
+	<div id="lowerRight">
+			<i data-reveal-id="leaderboard" class="fa fa-trophy button round fa-4x small"></i>
 		<%= link_to exploreIssues_path do %>
 			<i class="fa fa-globe button round fa-4x small"></i>
 		<% end %>
@@ -86,7 +86,7 @@
 
 
 <div id="leaderboard" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-  <h2 id="modalTitle">Top Smart Cookies</h2>
+  <h2 id="modalTitle">Top Streaks</h2>
   <table id="leaderBoard">
   	<% @leaders.each do |l| %>
   		<tr>

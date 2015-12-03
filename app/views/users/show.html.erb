@@ -1,9 +1,28 @@
 <div class="row">
-	<%= @user.name %><br>
-	Percent Correct: <%= (100*@user.percent_correct).round(3) %>%<br>
-	Current Streak: <%= @user.current_streak %><br>
+	<div class="small-8 columns">
+		<%= @user.name %><br>
+		Percent Correct: <%= (100*@user.percent_correct).round(3) %>%<br>
+		Current Streak: <%= @user.current_streak %><br>
+	</div>
+	<div class="small-4 columns" align="right">
+		<%= link_to "Edit Account", edit_user_path(@user), class: "tiny button" %>
+	</div>
 </div>
 
+
 <div class="row">
-	<%= link_to "Edit Account", edit_user_path(@user), class: "button" %>
+	<!-- <div id="lowerRight" class="small-4 small-offset-10 columns"> -->
+	<div id="lowerRight">
+		<%= link_to game_path do %>
+		  <i class="fa fa-comments button round fa-4x small"></i>
+		<% end %>
+		<%= link_to exploreIssues_path do %>
+			<i class="fa fa-globe button round fa-4x small"></i>
+		<% end %>
+		<% if logged_in? %>
+			<%= link_to manageLikedQuotes_path do %>
+			  <i class="fa fa-star button round fa-4x small"></i>
+			<% end %>
+		<% end %>
+	</div>
 </div>
