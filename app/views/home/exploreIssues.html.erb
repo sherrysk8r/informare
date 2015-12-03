@@ -1,11 +1,15 @@
 <div class="row issues">
-	<% @issues.each do |i| %>
-		<div class="issue_circle text-center">
-			<%= link_to issue_info_path(i.id) do %>
-				<%= i.title %></div>
-			<% end %>
-	<% end %>
+	<div class="small-12 columns">
+	<ul>
+		<% @issues.each do |i| %>
+			<li>
+				<%= link_to issue_info_path(i.id) do %>
+					<%= i.title %>
+				<% end %>
+			</li>
+		<% end %>
 	</ul>
+	</div>
 </div>
 
 <div class="row">

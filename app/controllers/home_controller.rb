@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   	@threeCandidates = Candidate.all.sample(3)
   	@quote = Candidate.getQuote(@threeCandidates.sample)
     $quote = @quote
-    @title = "Directions: Match the Quote and Candidate"
+    @title = "Match the Quote and Candidate"
     @leaders = User.getLeaders
   end
 
