@@ -5,7 +5,7 @@
 		</div>
 	<% else %>
 		<% for i in 0..@candidates.length - 1 %>
-			<div class="likedCandidateQuotes">
+			<div class="likedCandidateQuotes row">
 				<% candidate = @candidateProfiles[i] %>
 				<% candidateQuotes = @quotes.map{|q| q if q.candidate_id == candidate.id}.compact %>
 				
@@ -14,16 +14,22 @@
 					 has said the most things that you like.
 					<% end %>
 				</h4>
-				<div>
-					<ul>
-						<% candidateQuotes.each do |q| %>
-							<li><%= q.body_of_text %> <%= q.date_said %>
-								<%= link_to dislikeQuote_path(quote: q) do %>
-									<i class="fa fa-times" style="color:#CB0059;"></i>
-								<% end %>
-							</li>
-						<% end %>
-					</ul>
+				<div class="small-12 columns">
+					<div class="small-2 columns">
+						<%= image_tag candidate.image %>
+					</div>
+					<div class="small-1 columns"></div>
+					<div class="small-9 columns">
+						<ul>
+							<% candidateQuotes.each do |q| %>
+								<li><%= q.body_of_text %> <%= q.date_said %>
+									<%= link_to dislikeQuote_path(quote: q) do %>
+										<i class="fa fa-times" style="color:#CB0059;"></i>
+									<% end %>
+								</li>
+							<% end %>
+						</ul>
+					</div>
 				</div>
 			</div>
 		<% end %>
