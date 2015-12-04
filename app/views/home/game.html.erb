@@ -10,7 +10,7 @@
 				<div class="small-2 columns" align="right">
 					<% streak = current_user.current_streak.nil? ? 0 : current_user.current_streak %>
 					<% if streak == 0 %>
-						<div class="button small round" style="background-color: #CB0059" id="streak">
+						<div class="button small round zerostreak" id="streak">
 					<% else %>
 						<div class="button small round" id="streak">
 					<% end %>
@@ -86,7 +86,7 @@
 
 
 <div id="leaderboard" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-  <h2 id="modalTitle">Top Streaks</h2>
+  <h2 id="modalTitle">Top Smart Cookies</h2>
   <table id="leaderBoard">
   	<% @leaders.each do |l| %>
   		<tr>

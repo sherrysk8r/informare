@@ -116,11 +116,11 @@ $include-html-global-classes: $include-html-classes;
 // $black       : #000000;
 
 // We use these as default colors throughout
-   $primary-color: #3484F9;
-   $secondary-color: #E9D94D;
-   $alert-color: #CB0059;
-   $success-color: #3484F9;
-// $warning-color: #f08a24;
+   $primary-color: #6EC2AF;
+   $secondary-color: #E9E56C;
+   $alert-color: #CD5166;
+   $success-color: #6EC2AF;
+   $warning-color: #f79f52;
    $info-color: #616161;
 
 // We use these to control various global styles
@@ -1622,7 +1622,7 @@ div#title{
 .issues li a{
 	text-decoration:none;
     color:#000;
-    background:#ffc;
+    background-color: scale-color($warning-color, $lightness: 20%);
     display:table-cell;
     vertical-align: middle;
     height:5em;
@@ -1651,7 +1651,7 @@ div#title{
   -moz-transform:rotate(4deg);
   position:relative;
   top:5px;
-  background:#cfc;
+  background-color: scale-color($secondary-color, $lightness: 20%);
 }
 .issues li:nth-child(3n) a{
   -o-transform:rotate(-3deg);
@@ -1659,7 +1659,7 @@ div#title{
   -moz-transform:rotate(-3deg);
   position:relative;
   top:-5px;
-  background:#ccf;
+  background-color: scale-color($success-color, $lightness: 20%);
 }
 .issues li:nth-child(5n) a{
   -o-transform:rotate(5deg);
@@ -1688,6 +1688,14 @@ div#title{
 
 #streak{
 	font-size: 1.2rem;
+}
+
+.zerostreak{
+	background-color: $alert-color;
+}
+
+.zerostreak:hover{
+	background-color: $alert-color;
 }
 
 .quote{
