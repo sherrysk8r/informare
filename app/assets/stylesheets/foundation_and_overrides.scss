@@ -1621,7 +1621,7 @@ div#title{
 
 .issues li a{
 	text-decoration:none;
-    color:#000;
+    color:$black;
     background-color: scale-color($warning-color, $lightness: 20%);
     display:table-cell;
     vertical-align: middle;
