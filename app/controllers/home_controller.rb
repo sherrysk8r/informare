@@ -6,7 +6,8 @@ class HomeController < ApplicationController
   	@quote = Candidate.getQuote(@threeCandidates.sample)
     $quote = @quote
     @title = "Match the Quote and Candidate"
-    @leaders = User.getLeaders
+    @leaders = UserStreak.getTopStreaks
+    puts @leaders
   end
 
   def exploreIssues
@@ -42,19 +43,21 @@ class HomeController < ApplicationController
   	if !@correct
   		@response = Candidate.getCorrectMessage($quote.candidate_id)
       if logged_in?
-        current_user.current_streak = 0
-        current_user.save!
+        current_user.set_end_date_of_old_streak
       end
   	else
   		@response = "Correct!"
   		if logged_in?
-	  		current_user.current_streak += 1
-        current_user.number_of_questions_correct += 1
-	  		current_user.save!
+        if current_user.current_streak == 0
+          current_user.create_new_streak
+        else
+  	  		current_user.update_streak
+        end
 	  	end
   	end
   	redirect_to game_path(correct: @correct), notice: @response
   end
+
 
   def likeQuote
     quoteID = params[:quote]

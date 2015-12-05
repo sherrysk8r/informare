@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="small-8 columns">
-		<%= @user.name %><br>
-		Percent Correct: <%= (100*@user.percent_correct).round(3) %>%<br>
+		<h3><%= @user.name %></h3><br>
+		Percent Correct: <%= @user.percent_correct %><br>
 		Current Streak: <%= @user.current_streak %><br>
 	</div>
 	<div class="small-4 columns" align="right">

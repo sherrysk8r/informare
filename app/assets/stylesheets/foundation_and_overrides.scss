@@ -1690,6 +1690,10 @@ div#title{
 	font-size: 1.2rem;
 }
 
+#streak:hover{
+   background-color: $success-color;
+}
+
 .zerostreak{
 	background-color: $alert-color;
 }

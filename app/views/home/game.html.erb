@@ -87,12 +87,16 @@
 
 <div id="leaderboard" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
   <h2 id="modalTitle">Top Smart Cookies</h2>
-  <table id="leaderBoard">
-  	<% @leaders.each do |l| %>
-  		<tr>
-  			<td width="400px"><h5><%= l.name %></h5></td>
-  			<td><h5><%= l.current_streak %></h5></td>
-  		</tr>
-  	<% end %>
-  </table>
+  <% if !@leaders.nil? %>
+	  <table id="leaderBoard">
+	  	<% @leaders.each do |l| %>
+	  		<tr>
+	  			<td width="400px"><h5><%= l.user_name %></h5></td>
+	  			<td><h5><%= l.streak %></h5></td>
+	  		</tr>
+	  	<% end %>
+	  </table>
+  <% else %>
+  	<h5 align="center">Seems like no one's playing our game yet...<i class="fa fa-frown-o"></i></h5>
+  <% end %>
 </div>

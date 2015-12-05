@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 	has_many :liked_quotes
+    has_many :user_streaks
 	
 	has_secure_password
 
@@ -30,10 +31,40 @@ class User < ActiveRecord::Base
     end
 
     def percent_correct
-    	self.number_of_questions_correct.to_f/self.number_of_questions_answered
+        if self.number_of_questions_answered == 0
+            return "You haven't answered any questions yet!"
+        else
+        	return (100*self.number_of_questions_correct.to_f/self.number_of_questions_answered).round(3) + "%"
+        end
     end
 
-    def self.getLeaders
-        User.order(current_streak: :desc).first(10)
+    def current_streak
+        if !self.user_streaks.empty?
+            current_streak = self.user_streaks.current.take
+            if current_streak.nil?
+                return 0
+            else
+                return current_streak.streak
+            end
+        else
+            return 0
+        end
+    end
+
+    def set_end_date_of_old_streak
+        previous = self.user_streaks.current.take
+        previous.update_attribute(:date_end, Date.today) unless previous.nil?
+    end 
+
+    def update_streak
+        current = self.user_streaks.current.take
+        current.update_attribute(:streak, current.streak + 1)
+        self.number_of_questions_correct += 1
+        self.save!
+    end
+
+    def create_new_streak
+        new_streak = UserStreak.create(user_id: self.id, streak: 1, date_start: Date.today)
+        new_streak.save!
     end
 end
