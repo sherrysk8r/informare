@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	has_many :liked_quotes
     has_many :user_streaks
+    has_many :explored_issues
 	
 	has_secure_password
 
