@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 	validates :number_of_questions_answered, numericality: {only_integer: true, greater_than_or_equal_to: 0}, allow_blank:true
 
 	validates :number_of_questions_correct, numericality: {only_integer: true, greater_than_or_equal_to: 0}, allow_blank:true
-    
+
 	validates_presence_of :first_name, :last_name, :email
 	validates_uniqueness_of :email
 	validates_presence_of :password, on: :create 
@@ -65,5 +65,21 @@ class User < ActiveRecord::Base
     def create_new_streak
         new_streak = UserStreak.create(user_id: self.id, streak: 1, date_start: Date.today)
         new_streak.save!
+    end
+
+    def explored_issue(issue_id)
+        issues = self.explored_issues.map{|i| i.issue_id}
+        return issues.include?(issue_id)
+    end
+
+    def add_explored_issue(issue_id)
+        if !explored_issue(issue_id)
+            new_exploration = ExploredIssue.create(user_id: self.id, issue_id: issue_id)
+            new_exploration.save!
+        end
+    end
+
+    def percent_explored
+        return (self.explored_issues.count.to_f)/Issue.all.count
     end
 end

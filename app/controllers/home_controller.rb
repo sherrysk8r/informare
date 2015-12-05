@@ -12,7 +12,8 @@ class HomeController < ApplicationController
 
   def exploreIssues
     @issues = Issue.all.shuffle
-    @title = "Good work! You have explored xx issues."
+    percentExplored = current_user.percent_explored
+    @title = "You have explored " + (percentExplored.round(3)).to_s + "% of issues."
   end
 
   def manageLikedQuotes
@@ -30,6 +31,7 @@ class HomeController < ApplicationController
     @issue = Issue.find(params[:issue_id])
     @quotes = Quote.for_issue(params[:issue_id]).shuffle
     @title = @issue.title
+    current_user.add_explored_issue(@issue.id)
     # limit quotes to ones that haven't been liked by user
   end
 
