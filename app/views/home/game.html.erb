@@ -5,8 +5,17 @@
 			<div class="small-6 small-offset-3 columns">
 				<h4 align="center">Issue: <%= @quote.issue.title %></h4>
 			</div>
-			<div class="small-1 columns"></div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="small-12 columns">
 			<% if logged_in? %>
+				<div class="small-2 small-offset-8 columns" align="right">
+					<div class="button small round" id="streak">
+						<%= current_user.percent_correct %> <i class="fa fa-check"></i>
+					</div>
+				</div>
 				<div class="small-2 columns" align="right">
 					<% streak = current_user.current_streak.nil? ? 0 : current_user.current_streak %>
 					<% if streak == 0 %>
