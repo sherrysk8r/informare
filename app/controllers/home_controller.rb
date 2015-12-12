@@ -1,17 +1,18 @@
 class HomeController < ApplicationController
   # authorize_resource
   $quote
+  $leaders = UserStreak.getTopStreaks
   def game
   	@threeCandidates = Candidate.all.sample(3)
   	@quote = Candidate.getQuote(@threeCandidates.sample)
     $quote = @quote
     @title = "Match the Quote and Candidate"
-    @leaders = UserStreak.getTopStreaks
-    puts @leaders
+    @name = "game"
   end
 
   def exploreIssues
     @issues = Issue.all.shuffle
+    @name = "exploration"
     if logged_in?
       percentExplored = current_user.percent_explored
       @title = "You have explored " + (percentExplored.round(3)).to_s + "% of issues."
@@ -21,6 +22,7 @@ class HomeController < ApplicationController
   end
 
   def manageLikedQuotes
+    @name = "management"
     @title = "Manage Your Quotes"
     if logged_in?
       @quotes = current_user.liked_quotes.map{|l| l.quote}.flatten.to_a

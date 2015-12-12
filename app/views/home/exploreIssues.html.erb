@@ -5,6 +5,8 @@
 			<li>
 				<%= link_to issue_info_path(i.id) do %>
 					<%= i.title %>
+					<!-- check if issue has been explored
+					and add checkmark and what color -->
 				<% end %>
 			</li>
 		<% end %>
@@ -12,15 +14,4 @@
 	</div>
 </div>
 
-<div class="row">
-	<div class="small-2 small-offset-11 columns">
-	<%= link_to game_path do %>
-	  <i class="fa fa-comments button round fa-4x small"></i>
-	<% end %>
-	<% if logged_in? %>
-		<%= link_to manageLikedQuotes_path do %>
-		  <i class="fa fa-star button round fa-4x small"></i>
-		<% end %>
-	<% end %>
-	</div>
-</div>
+<%= render partial: 'partials/bottom_nav' %>

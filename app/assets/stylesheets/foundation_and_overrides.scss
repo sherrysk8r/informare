@@ -121,7 +121,7 @@ $include-html-global-classes: $include-html-classes;
    $alert-color: #CD5166;
    $success-color: #6EC2AF;
    $warning-color: #f79f52;
-   $info-color: #616161;
+   $info-color: #BFBFBF; 
 
 // We use these to control various global styles
    $body-bg: #FCFEFC;
@@ -1699,7 +1699,7 @@ div#title{
 }
 
 .zerostreak:hover{
-	background-color: $alert-color;
+	background-color: $alert-color !important;
 }
 
 .quote{
@@ -1737,4 +1737,14 @@ div#title{
 #leaderBoard{
 	margin-right: auto;
 	margin-left: auto;
+}
+
+.customTooltip {
+   color: white;
+   border-bottom: none;
+}
+
+.customTooltip:hover{
+   color: white;
+   border-bottom: none;
 }

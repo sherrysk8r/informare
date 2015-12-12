@@ -5,11 +5,12 @@
 			<% if logged_in? %>
 				<div class="small-2 columns" align="right">
 					<div class="button small round" id="streak">
-						<%= current_user.percent_correct %> <i class="fa fa-check"></i>
+						<span data-tooltip aria-haspopup="true" class="has-tip customTooltip" title="How many you got correct."><%= current_user.number_of_questions_correct %>/<%= current_user.number_of_questions_answered %></i></span>
 					</div>
 				</div>
 
 				<div class="small-2 columns" align="right">
+					<span data-tooltip aria-haspopup="true" class="has-tip customTooltip" title="How many correct in a row.">
 					<% streak = current_user.current_streak.nil? ? 0 : current_user.current_streak %>
 					<% if streak == 0 %>
 						<div class="button small round zerostreak" id="streak">
@@ -18,6 +19,7 @@
 					<% end %>
 						<%= streak.to_s.strip + " " %><%= image_tag 'flames8.png', id: "flame_icon" %>
 						</div>
+					</span>
 				</div>
 			<% end %>
 		</div>
@@ -80,34 +82,4 @@
 	</div>
 </div>
 
-<div class="row">
-	<!-- <div id="lowerRight" class="small-4 small-offset-10 columns"> -->
-	<div id="lowerRight">
-			<i data-reveal-id="leaderboard" class="fa fa-trophy button round fa-4x small"></i>
-		<%= link_to exploreIssues_path do %>
-			<i class="fa fa-globe button round fa-4x small"></i>
-		<% end %>
-		<% if logged_in? %>
-			<%= link_to manageLikedQuotes_path do %>
-			  <i class="fa fa-star button round fa-4x small"></i>
-			<% end %>
-		<% end %>
-	</div>
-</div>
-
-
-<div id="leaderboard" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-  <h2 id="modalTitle">Top Smart Cookies</h2>
-  <% if !@leaders.nil? %>
-	  <table id="leaderBoard">
-	  	<% @leaders.each do |l| %>
-	  		<tr>
-	  			<td width="400px"><h5><%= l.user_name %></h5></td>
-	  			<td><h5><%= l.streak %></h5></td>
-	  		</tr>
-	  	<% end %>
-	  </table>
-  <% else %>
-  	<h5 align="center">Seems like no one's playing our game yet...<i class="fa fa-frown-o"></i></h5>
-  <% end %>
-</div>
+<%= render partial: 'partials/bottom_nav' %>

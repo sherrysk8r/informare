@@ -20,18 +20,4 @@
 	</div>
 </div>
 
-<div class="row">
-	<div class="small-3 small-offset-10 columns">
-	<%= link_to game_path do %>
-	  <i class="fa fa-comments button round fa-4x small"></i>
-	<% end %>
-	<%= link_to exploreIssues_path do %>
-		<i class="fa fa-globe button round fa-4x small"></i>
-	<% end %>
-	<% if logged_in? %>
-		<%= link_to manageLikedQuotes_path do %>
-		  <i class="fa fa-star button round fa-4x small"></i>
-		<% end %>
-	<% end %>
-	</div>
-</div>
+<%= render partial: 'partials/bottom_nav' %>

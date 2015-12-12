@@ -1,0 +1,50 @@
+<div class="row">
+	<div id="lowerRight">
+			<i data-reveal-id="leaderboard" class="fa fa-trophy button round fa-4x small"></i>
+		<%= link_to game_path do %>
+			<% if @name %>
+		  		<% if @name == "game" %>
+		  			<i class="fa fa-gamepad button round small disabled"></i>
+		  		<% else %>
+		  			<i class="fa fa-gamepad button round small"></i>
+		  		<% end %>
+		  	<% end %>
+		<% end %>
+		<%= link_to exploreIssues_path do %>
+			<% if @name %>
+		  		<% if @name == "exploration" %>
+		  			<i class="fa fa-search button round small disabled"></i>
+		  		<% else %>
+		  			<i class="fa fa-search button round small"></i>
+		  		<% end %>
+		  	<% end %>
+		<% end %>
+		<% if logged_in? %>
+			<%= link_to manageLikedQuotes_path do %>
+			  <% if @name %>
+		  		<% if @name == "management" %>
+		  			<i class="fa fa-star button round small disabled"></i>
+		  		<% else %>
+		  			<i class="fa fa-star button round small"></i>
+		  		<% end %>
+		  	<% end %>
+			<% end %>
+		<% end %>
+	</div>
+</div>
+
+<div id="leaderboard" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle">Top Smart Cookies</h2>
+  <% if !$leaders.nil? %>
+	  <table id="leaderBoard">
+	  	<% $leaders.each do |l| %>
+	  		<tr>
+	  			<td width="400px"><h5><%= l.user_name %></h5></td>
+	  			<td><h5><%= l.streak %></h5></td>
+	  		</tr>
+	  	<% end %>
+	  </table>
+  <% else %>
+  	<h5 align="center">Seems like no one's playing our game yet...<i class="fa fa-frown-o"></i></h5>
+  <% end %>
+</div>

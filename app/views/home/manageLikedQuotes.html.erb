@@ -36,14 +36,4 @@
 	<% end %>
 </div>
 
-<div class="row">
-	<div class="small-2 small-offset-11 columns">
-	<%= link_to game_path do %>
-	  <i class="fa fa-comments button round small"></i>
-	<% end %>
-
-	<%= link_to exploreIssues_path do %>
-	  <i class="fa fa-globe button round small"></i>
-	<% end %>
-	</div>
-</div>
+<%= render partial: 'partials/bottom_nav' %>
