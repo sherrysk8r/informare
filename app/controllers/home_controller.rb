@@ -15,7 +15,7 @@ class HomeController < ApplicationController
     @name = "exploration"
     if logged_in?
       percentExplored = current_user.percent_explored
-      @title = "You have explored " + (percentExplored.round(3)).to_s + "% of issues."
+      @title = "You have explored " + (100*percentExplored.round(3)).to_s + "% of issues."
     else 
       @title = "Login to see Track Your Exploration"
     end

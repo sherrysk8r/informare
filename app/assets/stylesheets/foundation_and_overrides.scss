@@ -1612,14 +1612,14 @@ div#title{
 	padding: 1em;
 }
 
-.issues li{
+.issues div{
 	list-style: none;
 	margin: 1em;
 	float: left;
 	display: table;
 }
 
-.issues li a{
+.issues div a{
 	text-decoration:none;
     color:$black;
     background-color: scale-color($warning-color, $lightness: 20%);
@@ -1639,13 +1639,13 @@ div#title{
     -webkit-transition:-webkit-transform .15s linear;
 }
 
-.issues li a{
+.issues div a{
   -webkit-transform:rotate(-6deg);
   -o-transform:rotate(-6deg);
   -moz-transform:rotate(-6deg);
 }
 
-.issues li:nth-child(even) a{
+.issues div:nth-child(even) a{
   -o-transform:rotate(4deg);
   -webkit-transform:rotate(4deg);
   -moz-transform:rotate(4deg);
@@ -1653,7 +1653,7 @@ div#title{
   top:5px;
   background-color: scale-color($secondary-color, $lightness: 20%);
 }
-.issues li:nth-child(3n) a{
+.issues div:nth-child(3n) a{
   -o-transform:rotate(-3deg);
   -webkit-transform:rotate(-3deg);
   -moz-transform:rotate(-3deg);
@@ -1661,7 +1661,7 @@ div#title{
   top:-5px;
   background-color: scale-color($success-color, $lightness: 20%);
 }
-.issues li:nth-child(5n) a{
+.issues div:nth-child(5n) a{
   -o-transform:rotate(5deg);
   -webkit-transform:rotate(5deg);
   -moz-transform:rotate(5deg);
@@ -1669,7 +1669,7 @@ div#title{
   top:-10px;
 }
 
-.issues li a:hover,.issues li a:focus{
+.issues div a:hover,.issues li a:focus{
   -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
   -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
   box-shadow:10px 10px 7px rgba(0,0,0,.7);
@@ -1747,4 +1747,8 @@ div#title{
 .customTooltip:hover{
    color: white;
    border-bottom: none;
+}
+
+.issue_explored a{
+   background-color: $info-color !important;
 }

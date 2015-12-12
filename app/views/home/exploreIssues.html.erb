@@ -2,13 +2,21 @@
 	<div class="small-12 columns">
 	<ul>
 		<% @issues.each do |i| %>
-			<li>
-				<%= link_to issue_info_path(i.id) do %>
-					<%= i.title %>
+			<% if i.hasBeenExploredBy(current_user.id) %>
+			<div class="issue_explored">
+			<% else %>
+			<div>
+			<% end %>
+
+					<%= link_to issue_info_path(i.id) do %>
+						<%= i.title %>
 					<!-- check if issue has been explored
 					and add checkmark and what color -->
+					<% if i.hasBeenExploredBy(current_user.id) %>
+						<i class="fa fa-check"></i>
+					<% end %>
 				<% end %>
-			</li>
+			</div>
 		<% end %>
 	</ul>
 	</div>
