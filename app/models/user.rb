@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
         if self.number_of_questions_answered == 0
             return "You haven't answered any questions yet!"
         else
-        	return ((100*self.number_of_questions_correct.to_f/self.number_of_questions_answered).round(3)).to_s + "%"
+        	return ((100*self.number_of_questions_correct.to_f/self.number_of_questions_answered).round(0)).to_s + "%"
         end
     end
 

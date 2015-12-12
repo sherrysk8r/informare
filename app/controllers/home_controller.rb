@@ -12,8 +12,12 @@ class HomeController < ApplicationController
 
   def exploreIssues
     @issues = Issue.all.shuffle
-    percentExplored = current_user.percent_explored
-    @title = "You have explored " + (percentExplored.round(3)).to_s + "% of issues."
+    if logged_in?
+      percentExplored = current_user.percent_explored
+      @title = "You have explored " + (percentExplored.round(3)).to_s + "% of issues."
+    else 
+      @title = "Login to see Track Your Exploration"
+    end
   end
 
   def manageLikedQuotes
