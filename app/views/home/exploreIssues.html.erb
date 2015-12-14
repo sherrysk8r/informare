@@ -2,7 +2,7 @@
 	<div class="small-12 columns">
 	<ul>
 		<% @issues.each do |i| %>
-			<% if i.hasBeenExploredBy(current_user.id) %>
+			<% if logged_in? && i.hasBeenExploredBy(current_user.id) %>
 			<div class="issue_explored">
 			<% else %>
 			<div>
@@ -12,7 +12,7 @@
 						<%= i.title %>
 					<!-- check if issue has been explored
 					and add checkmark and what color -->
-					<% if i.hasBeenExploredBy(current_user.id) %>
+					<% if logged_in? && i.hasBeenExploredBy(current_user.id) %>
 						<i class="fa fa-check"></i>
 					<% end %>
 				<% end %>

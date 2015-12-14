@@ -37,7 +37,9 @@ class HomeController < ApplicationController
     @issue = Issue.find(params[:issue_id])
     @quotes = Quote.for_issue(params[:issue_id]).shuffle
     @title = @issue.title
-    current_user.add_explored_issue(@issue.id)
+    if logged_in?
+      current_user.add_explored_issue(@issue.id)
+    end
     # limit quotes to ones that haven't been liked by user
   end
 

@@ -2,32 +2,26 @@
 	<div id="lowerRight">
 			<i data-reveal-id="leaderboard" class="fa fa-trophy button round fa-4x small"></i>
 		<%= link_to game_path do %>
-			<% if @name %>
-		  		<% if @name == "game" %>
-		  			<i class="fa fa-gamepad button round small disabled"></i>
-		  		<% else %>
-		  			<i class="fa fa-gamepad button round small"></i>
-		  		<% end %>
-		  	<% end %>
+	  		<% if @name && @name == "game" %>
+	  			<i class="fa fa-gamepad button round small disabled"></i>
+	  		<% else %>
+	  			<i class="fa fa-gamepad button round small"></i>
+	  		<% end %>
 		<% end %>
 		<%= link_to exploreIssues_path do %>
-			<% if @name %>
-		  		<% if @name == "exploration" %>
-		  			<i class="fa fa-search button round small disabled"></i>
-		  		<% else %>
-		  			<i class="fa fa-search button round small"></i>
-		  		<% end %>
-		  	<% end %>
+	  		<% if @name && @name == "exploration" %>
+	  			<i class="fa fa-search button round small disabled"></i>
+	  		<% else %>
+	  			<i class="fa fa-search button round small"></i>
+	  		<% end %>
 		<% end %>
 		<% if logged_in? %>
 			<%= link_to manageLikedQuotes_path do %>
-			  <% if @name %>
-		  		<% if @name == "management" %>
+		  		<% if @name && @name == "management" %>
 		  			<i class="fa fa-star button round small disabled"></i>
 		  		<% else %>
 		  			<i class="fa fa-star button round small"></i>
 		  		<% end %>
-		  	<% end %>
 			<% end %>
 		<% end %>
 	</div>
