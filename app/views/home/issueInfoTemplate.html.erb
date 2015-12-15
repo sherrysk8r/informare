@@ -1,9 +1,10 @@
-<div class="row">
+<div class="row issueContent">
 	<div class="small-9 columns">
 		<%= render partial: 'issueDetails/'+@issue.title.delete('&').split.join("_").downcase %>
 	</div>
-	<div class="small-3 columns" style="overflow: scroll; height: 100%;">
+	<div class="small-3 columns" style="position: fixed; margin-left: 65%;">
 		<h5 align="center">Some Quotes By Candidates</h5>
+		<div class="quotes">
 		<% @quotes.each do |q| %>
 			<div class='quote'>
 				<!-- ideally want to do this as json? -->
@@ -17,6 +18,7 @@
 				<% end %>
 			</div>	
 		<% end %>
+		</div>
 	</div>
 </div>
 
