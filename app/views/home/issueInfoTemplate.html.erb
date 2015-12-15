@@ -2,7 +2,7 @@
 	<div class="small-9 columns">
 		<%= render partial: 'issueDetails/'+@issue.title.delete('&').split.join("_").downcase %>
 	</div>
-	<div class="small-3 columns" style="overflow: scroll; height: 35em;">
+	<div class="small-3 columns" style="overflow: scroll; height: 100%;">
 		<h5 align="center">Some Quotes By Candidates</h5>
 		<% @quotes.each do |q| %>
 			<div class='quote'>

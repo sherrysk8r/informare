@@ -1540,9 +1540,9 @@ $h6-font-size: 1rem;
 
 // keeps the the 3 icons on the lower right corner of the screen
 #lowerRight {
-	position: absolute;
-    bottom: 20px;
-    right: 50px;
+	position: fixed;
+   bottom: 20px;
+   right: 50px;
 }
 
 .alert{
@@ -1751,4 +1751,8 @@ div#title{
 
 .issue_explored a{
    background-color: $info-color !important;
+}
+
+.teal {
+   color: $success-color;
 }
