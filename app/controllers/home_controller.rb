@@ -8,6 +8,7 @@ class HomeController < ApplicationController
     $quote = @quote
     @title = "Match the Quote and Candidate"
     @name = "game"
+    $leaders = UserStreak.getTopStreaks
   end
 
   def exploreIssues
@@ -57,6 +58,8 @@ class HomeController < ApplicationController
       end
   	else
   		@response = "Correct!"
+      current_user.number_of_questions_correct += 1
+      current_user.save!
   		if logged_in?
         if current_user.current_streak == 0
           current_user.create_new_streak

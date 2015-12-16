@@ -58,8 +58,6 @@ class User < ActiveRecord::Base
     def update_streak
         current = self.user_streaks.current.take
         current.update_attribute(:streak, current.streak + 1)
-        self.number_of_questions_correct += 1
-        self.save!
     end
 
     def create_new_streak

@@ -15,7 +15,7 @@ class UserStreak < ActiveRecord::Base
 	end
 
 	def self.getTopStreaks
-		return UserStreak.byScore.first(10)
+		return UserStreak.byScore.first(6)
 	end
 
 end
