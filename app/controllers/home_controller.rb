@@ -72,7 +72,7 @@ class HomeController < ApplicationController
   def likeQuote
     quoteID = params[:quote]
     if logged_in?
-      @like = LikedQuote.create(user_id: current_user.id, quote_id: quoteID)
+      @like = LikedQuote.new(user_id: current_user.id, quote_id: quoteID)
       if @like.save
         redirect_to issue_info_path(issue_id: params[:issue_id])
       else
