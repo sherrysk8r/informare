@@ -6,7 +6,6 @@ class LikedQuote < ActiveRecord::Base
 
 	def quote_not_liked_before
 		if !(self.user.liked_quotes.find_by quote_id: self.quote_id).nil?
-			puts self.quote_id
 			errors.add(:quote_id, "This quote has already been liked.")
 			return false
 		end

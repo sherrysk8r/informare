@@ -1,3 +1,7 @@
+<script type="text/javascript">
+	// $('.likedQuote').onClick
+</script>
+
 <div class="row issueContent">
 	<div class="small-9 columns">
 		<%= render partial: 'issueDetails/'+@issue.title.delete('&').split.join("_").downcase %>
@@ -7,11 +11,12 @@
 		<div class="quotes">
 		<% @quotes.each do |q| %>
 			<div class='quote'>
-				<!-- ideally want to do this as json? -->
 				<div class="quote_body">"<%= q.body_of_text %>"</div>
 				<% if logged_in? %>
-					<%= link_to likeQuote_path(quote: q, issue_id: @issue.id) do %>
-						<div align="right" style="color: white">Like <i class="fa fa-star"></i></div>
+					<% if !current_user.has_liked_quote(q.id) %>
+						<%= link_to likeQuote_path(quote: q, issue_id: @issue.id), remote: true, class: "likedQuote", onclick: "$(this).hide();" do %>
+							<div align="right" style="color: white">Like <i class="fa fa-star"></i></div>
+						<% end %>
 					<% end %>
 				<% else %>
 					<div align="right" style="color: #cfcfcf;">Like <i class="fa fa-star"></i></div>

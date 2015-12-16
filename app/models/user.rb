@@ -82,4 +82,8 @@ class User < ActiveRecord::Base
     def percent_explored
         return (self.explored_issues.count.to_f)/Issue.all.count
     end
+
+    def has_liked_quote(quote_id)
+        return self.liked_quotes.map{|q| q.quote.id }.to_a.include? (quote_id)
+    end
 end
