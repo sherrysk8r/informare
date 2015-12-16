@@ -58,9 +58,10 @@ class HomeController < ApplicationController
       end
   	else
   		@response = "Correct!"
-      current_user.number_of_questions_correct += 1
-      current_user.save!
   		if logged_in?
+        current_user.number_of_questions_correct += 1
+        current_user.save!
+
         if current_user.current_streak == 0
           current_user.create_new_streak
         else
