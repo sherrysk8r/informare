@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class ExploredIssueTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  should belong_to(:user)
+  should belong_to(:issue)
 end

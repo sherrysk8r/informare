@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class QuoteTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  should have_many(:liked_quotes)
+  should belong_to(:issue)
+  should belong_to(:candidate)
 end
